@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MyReservation{% endblock %}
+
+{% block body %}
+    <div class="container mx-auto m-4">
+        <h1>Products</h1>
+       <p>yoopla</p>
+        
+        <form method="get" action="{{ path('home.index') }}" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="q" class="form-control" placeholder="Rechercher un produit" aria-label="Rechercher un produit">
+                <button class="btn btn-primary" type="submit">Rechercher</button>
+            </div>
+        </form>
+
+        {# read and display just one flash message type #}
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success mt-4">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% if products is not empty %}
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4"> 
+                        <div class="card">
+                            <img src="https://picsum.photos/150/100" class="card-img-top" alt="produit sport">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                               
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+        <p>Aucun produit</p>
+        {% endif %}
+    </div>
+{% endblock %}

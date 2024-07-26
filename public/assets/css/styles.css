@@ -1,0 +1,15 @@
+.container {
+    padding: 2rem;
+}
+.row {
+    gap: 1rem;
+}
+.card-img-top {
+    margin-top: .5rem;
+}
+.card-price {
+    font-weight: bolder;
+}
+.card {
+    height: 30rem;
+}
